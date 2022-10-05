@@ -5,7 +5,7 @@ import { getSession } from "@auth0/nextjs-auth0";
 export default async function handler(req, res) {
 	const session = getSession(req, res);
 	const user = session?.user;
-	const stripeId = user ? user[`${process.env.BASE_URL}/stripe_customer_id`] : undefined;
+	const stripeId = user ? user["http://localhost:3000/stripe_customer_id"] : undefined;
 
 	if (req.method === "POST") {
 		try {
